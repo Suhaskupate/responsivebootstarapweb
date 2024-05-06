@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <title>vondiamonds</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+
+
+    <script src="script.js" defer></script>
+
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .menu li {
+        list-style: none;
+      }
+      .menu li a {
+        text-decoration: none;
+      }
+      ul {
+        margin: 0;
+      }
+      .header_navbar {
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .header_navbar a {
+        float: left;
+        font-size: 16px;
+        color: white;
+        text-align: center;
+        padding: 14px 8px;
+        text-decoration: none;
+        position: relative;
+      }
+      /* .header_navbar a:hover, */
+      .header_navbar .heade_dropdown .dropbtn .active1::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        left: 0;
+        bottom: -14px;
+        background-color: var(--active-color);
+        transform: scale(1, 1);
+      }
+
+      .heade_dropdown {
+        float: left;
+        overflow: hidden;
+      }
+      .header_title {
+        text-transform: capitalize;
+      }
+      .heade_dropdown .dropbtn {
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 8px;
+        background-color: inherit;
+        font: inherit;
+        margin: 0;
+      }
+
+      .header_navbar .heade_dropdown .dropbtn a::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        left: 0;
+        bottom: -14px;
+        background-color: var(--active-color);
+        transform: scale(0, 1);
+        transition: transform 0.6s ease;
+      }
+
+      .header_navbar .heade_dropdown .dropbtn a:hover::before {
+        transform: scale(1, 1);
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        z-index: 99;
+      }
+
+      .heade_dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      /* Create three equal columns that floats next to each other */
+      .header_row {
+        padding: 15px;
+        background-color: #fff;
+      }
+
+      .column a {
+        float: none;
+        color: var(--default-color);
+        padding: 9px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+      }
+      .column {
+        border-right: 1px solid rgb(201, 197, 197);
+      }
+      .column:last-child {
+        border-right: none;
+      }
+      .column a:hover {
+        background-color: #faf2f2;
+      }
+
+      /* Clear floats after the columns */
+      .header_row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      /* ---------sleder- end-------------- */
+
+      /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+      @media screen and (max-width: 600px) {
+        .column {
+          width: 100%;
+          height: auto;
+          /* border-right: 1px solid gray; */
+        }
+      }
+      ul li {
+        list-style: none;
+      }
+
+      a {
+        text-decoration: none;
+      }
+      .bar_container {
+        display: inline-block;
+        cursor: pointer;
+      }
+
+      .bar2 {
+        width: 15px;
+        height: 2px;
+        background-color: #fff;
+        margin: 7px 0;
+        transition: 0.4s;
+        border-radius: 5px;
+      }
+
+      .bar1 {
+        width: 25px;
+        height: 2px;
+        background-color: #fff;
+        margin: 7px 0;
+        transition: 0.4s;
+        border-radius: 5px;
+      }
+      .bar3 {
+        width: 25px;
+        height: 2px;
+        background-color: #fff;
+        transition: 0.4s;
+        border-radius: 5px;
+      }
+
+      .acount_btn {
+        width: 230px;
+        background-color: #fff;
+        display: none;
+        position: absolute;
+        right: 0;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        transition: 1s;
+      }
+
+      .account_menus:hover .acount_btn {
+        display: block;
+      }
+
+      .account_menus {
+        position: relative;
+        display: block;
+      }
+
+      .right_menu_color {
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      .menu_color {
+        color: #fff;
+      }
+      .cart_wish a {
+        color: var(--default-color);
+        font-size: 14px;
+      }
+      .cart_wish a:hover {
+        color: var(--active-color);
+      }
+
+      .d_header {
+        background: var(--default-color);
+
+        /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+      }
+
+      .modal .modal-content {
+        border-radius: 0px;
+        border-width: 0px;
+      }
+
+      .modal .search-dialog {
+        width: 100%;
+        max-width: none;
+        height: 100%;
+        margin: 0;
+      }
+      .count_color {
+        color: #fff;
+      }
+      .mob-menu-color li a {
+        color: var(--default-color);
+      }
+
+      /* ----------home page css--------- */
+      .home-container {
+        width: 95%;
+        margin: auto;
+      }
+      .discimg img {
+        width: 100%;
+        height: 50%;
+      }
+      .discimg {
+        position: relative;
+      }
+      .discount {
+        position: absolute;
+        bottom: 200px;
+        right: 20px;
+      }
+
+      .spbtn button {
+        width: 70%;
+        background-color: white;
+      }
+      .discount {
+        background-color: rgb(90, 87, 87);
+        width: 40px;
+        width: 25%;
+        text-align: center;
+        opacity: 0.8;
+      }
+
+      .newbg {
+        background: url(2.jpg);
+        display: grid;
+        place-items: end;
+        height: 550px;
+        padding: 25px;
+        background-repeat: no-repeat;
+      }
+      .shopcontent {
+        text-align: center;
+        width: 30%;
+        padding: 10px;
+        opacity: 0.8;
+      }
+
+      .savebtn {
+        background-color: white;
+        color: black;
+        transition: 3s;
+        border: 1px solid #f9f9f9;
+      }
+      .savebtn:hover {
+        background-color: rgb(14, 41, 41);
+        color: aliceblue;
+        border: 1px solid black;
+      }
+
+      .slideimg {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 20px;
+      }
+      .slideimg img {
+        width: 100%;
+      }
+      .Jewelcategory {
+        width: 100%;
+      }
+
+      .card {
+        object-fit: cover;
+        cursor: pointer;
+      }
+      .slidecontent .card {
+        list-style: none;
+        background: white;
+        border-radius: 8px;
+        display: flex;
+        padding: 8px;
+        /* height: 150px; */
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .wrapper .slidecontent {
+        display: grid;
+        grid-auto-flow: column;
+        gap: 20px;
+        cursor: pointer;
+      }
+      .wrapper {
+        width: 100%;
+        position: relative;
+      }
+
+      .wrapper i {
+        height: 50px;
+        width: 50px;
+        background: white;
+        text-align: center;
+        line-height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50);
+        box-shadow: 0 3px 6px black;
+        z-index: 1;
+      }
+      .wrapper i:first-child {
+        left: -22px;
+      }
+
+      .wrapper i:last-child {
+        right: 5px;
+      }
+
+      @media screen and (max-width: 900px) {
+        .wrapper .slidecontent {
+          grid-auto-columns: calc((100% / 2) -9px);
+        }
+      }
+
+      @media screen and (max-width: 900px) {
+        .wrapper .slidecontent {
+          grid-auto-columns: 100%;
+        }
+      }
+      .offer img {
+        width: 100%;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .offer {
+        display: inline-block;
+        gap: 30px;
+        overflow: hidden;
+        margin: 20px;
+        display: inline-block;
+        background-size: cover;
+      }
+
+      .offer1:hover {
+        transform: scale(1.1);
+        transition: transform 0.9s ease;
+      }
+
+      .offer2:hover {
+        transform: scale(1.1);
+        transition: transform 0.9s ease;
+      }
+
+      .offer3:hover {
+        transform: scale(1.1);
+        transition: transform 0.9s ease;
+      }
+
+      .commit img {
+        width: 30%;
+        align-items: center;
+      }
+
+      .commit {
+        text-align: center;
+        align-items: center;
+      }
+      .line-footer a {
+        position: relative;
+        text-decoration: none;
+        color: rgb(73, 72, 72);
+      }
+
+      .line-footer a::after {
+        content: "";
+        position: absolute;
+        width: 10%;
+        height: 1px;
+        left: 0;
+        bottom: -5px;
+        background-color: black;
+
+        transform: scale(1, 1);
+        transition: width 1s;
+      }
+
+      .line-footer a:hover::after {
+        width: 100%;
+      }
+      .line-footer {
+        align-items: center;
+        padding: 4px;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="p-2 mb-2 bg-warning text-dark">
+      <marquee behavior="" direction="">Free Shiphing & Free returns</marquee>
+    </div>
+
+    <div class="container text-center">
+      <div class="row" style="margin-top: 20px">
+        <div class="col-lg-4">
+          <div
+            class="d-flex"
+            style="
+              gap: 10px;
+              font-family: Libre Franklin, sans-serif;
+              font-size: 13px;
+            "
+          >
+            <div>Contact Us |</div>
+            <div>FAQs |</div>
+            <div>Book an Appointment</div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <img src="Logo_VonDiamonds-01_1.svg" style="width: 145px" />
+        </div>
+
+        <div class="col-lg-4">
+          <div class="position-relative">
+            <input
+              style="border: 1px solid rgb(221, 216, 216)"
+              type="text"
+              placeholder="Search"
+              class="w-100 py-2 px-5"
+            />
+            <span
+              style="
+                position: absolute;
+                top: 50%;
+                left: 15px;
+                transform: translate(0, -50%);
+                color: gray;
+                font-size: 18px;
+              "
+              ><i class="fa-solid fa-magnifying-glass"></i
+            ></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-3 w-100 mb-2" style="background-color: rgb(233, 227, 227)">
+      <div
+        class="d_header"
+        style="
+          position: -webkit-sticky;
+          position: sticky;
+          top: 0;
+          z-index: 999;
+          width: 100%;
+        "
+      >
+        <div class="d-none d-lg-block" style="width: 90%; margin: auto">
+          <div class="row d-flex align-items-center">
+            <div class="col-1 d-flex align-items-center">
+              <a href="">
+                <img src="Logo_VonDiamonds-01_1.svg" style="width: 145px" />
+              </a>
+            </div>
+            <div class="col-9">
+              <div class="header_navbar">
+                <div class="heade_dropdown">
+                  <button class="dropbtn">
+                    <a class="text-uppercase" href="">
+                      Engagement
+                      <span style="font-size: 12px">
+                        <i class="fa-solid fa-angle-down"></i
+                      ></span>
+                    </a>
+                  </button>
+                  <div class="dropdown-content">
+                    <div class="header_row row">
+                      <div class="column col-3">
+                        <a href="">
+                          <h6 class="header_title">Style</h6>
+                        </a>
+
+                        <a
+                          href="class="
+                          text-capitalize
+                          d-flex
+                          align-items-center
+                        >
+                          &nbsp; Earring
+                        </a>
+
+                        <a
+                          href="class="
+                          text-capitalize
+                          d-flex
+                          align-items-center
+                        >
+                          &nbsp; Braclates
+                        </a>
+
+                        <a
+                          href="class="
+                          text-capitalize
+                          d-flex
+                          align-items-center
+                        >
+                          &nbsp; Ring
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="d-flex justify-content-between align-items-center">
+                <i class="fa-regular fa-user"></i>
+                <i class="fa-solid fa-bag-shopping"></i>
+                <i class="fa-regular fa-heart"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="newbg">
+      <div class="shopcontent" style="background-color: rgb(199, 189, 189)">
+        <div>
+          <p style="margin-top: 20px">Mother's day Special</p>
+          <h2 data-aos="fade-up">
+            SAVE 35% <br />
+            SITEWIDE
+          </h2>
+
+          <button class="savebtn" style="width: 60%; padding: 11px">
+            SHOP ALL JEWELRY</button
+          ><br />
+          <button
+            class="savebtn"
+            style="margin-top: 10px; margin-bottom: 10px; padding: 11px"
+          >
+            SHOP MOTHER'S DAY GIFT
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- -------------home page-------------- -->
+
+    <div class="home-container">
+      <div>
+        <h4
+          style="
+            text-align: center;
+            margin-top: 40px;
+            font-family: Frank Ruhl Libre;
+            font-weight: 600;
+          "
+        >
+          Shop By Style
+        </h4>
+      </div>
+
+      <div class="row g-2" style="margin: 30px 0">
+        <img class="col-lg-2 col-6" src="Solitaire_1.jpg" alt="" />
+        <img class="col-lg-2 col-6" src="Side_Stone.jpg" alt="" />
+        <img class="col-lg-2 col-6" src="Halo__1.jpg" alt="" />
+        <img class="col-lg-2 col-6" src="Hidden_Halo.jpg" alt="" />
+        <img class="col-lg-2 col-6" src="Three_Stone_1.jpg" alt="" />
+        <img class="col-lg-2 col-6" src="Bridal_Set.jpg" alt="" />
+      </div>
+      <div>
+        <h4
+          style="
+            text-align: center;
+            margin: 50px 0;
+            font-family: Frank Ruhl Libre;
+            font-weight: 600;
+          "
+        >
+          Shop By Shape
+        </h4>
+        <div class="shapes">
+          <div class="row g-4 align-items-center">
+            <div class="col-lg-1 col-3 text-center">
+              <img
+                style="width: 100%; height: 70px"
+                src="round_collection (1).svg"
+                alt=""
+              />
+            </div>
+            <div class="col-lg-1 col-3 text-center">
+              <img
+                style="width: 100%; height: 70px"
+                src="oval_collection.svg"
+                alt=""
+              />
+            </div>
+            <div class="col-lg-1 col-3 text-center">
+              <img
+                style="width: 100%; height: 70px"
+                src="emerald_collection.svg"
+                alt=""
+              />
+            </div>
+            <div class="col-lg-1 col-3 text-center">
+              <img
+                style="width: 100%; height: 70px"
+                src="pear_collection.svg"
+                alt=""
+              />
+            </div>
+            <div class="col-lg-1 col-3 text-center">
+              <img
+                style="width: 100%; height: 70px"
+                src="cushion_collection.svg"
+                alt=""
+              />
+            </div>
+            <div class="col-lg-1 col-3 text-center">
+              <img
+                style="width: 100%; height: 70px"
+                src="marquise_collection.svg"
+                alt=""
+              />
+            </div>
+            <div class="col-lg-1 col-3 text-center">
+              <img
+                style="width: 100%; height: 70px"
+                src="asscher_collection.svg"
+                alt=""
+              />
+            </div>
+            <div class="col-lg-1 col-3 text-center">
+              <img
+                style="width: 100%; height: 70px"
+                src="radiant_collection.svg"
+                alt=""
+              />
+            </div>
+            <div class="col-lg-1 col-3 text-center">
+              <img
+                style="width: 100%; height: 70px"
+                src="princess_collection.svg"
+                alt=""
+              />
+            </div>
+            <div class="col-lg-1 col-3 text-center">
+              <img
+                style="width: 100%; height: 70px"
+                src="heart_collection.svg"
+                alt=""
+              />
+            </div>
+            <div class="col-lg-1 col-3 text-center">
+              <img
+                style="width: 100%; height: 70px"
+                src="elongated_cushion.svg"
+                alt=""
+              />
+            </div>
+            <div class="col-lg-1 col-3 text-center">
+              <img
+                style="width: 100%; height: 70px"
+                src="heart_collection.svg"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="Jewelcategory">
+        <div>
+          <h4
+            style="
+              text-align: center;
+              margin: 50px 0;
+              font-family: Frank Ruhl Libre;
+              font-weight: 600;
+            "
+          >
+            Shop By Category
+          </h4>
+        </div>
+        <div class="row g-3">
+          <div class="col-lg-3 col-6">
+            <img style="width: 100%" src="Rings.jpg" />
+          </div>
+
+          <div class="col-lg-3 col-6">
+            <img style="width: 100%" src="Earrings.jpg" />
+          </div>
+
+          <div class="col-lg-3 col-6">
+            <img style="width: 100%" src="Neckless.jpg" />
+          </div>
+
+          <div class="col-lg-3 col-6">
+            <img style="width: 100%" src="Bracelets.jpg" />
+          </div>
+        </div>
+      </div>
+
+      <div class="wrapper" style="background-color: aquamarine; padding: 16px">
+        <div style="text-align: center">
+          <b>Customer reviews</b>
+        </div>
+        <i class="fa-solid fa-angle-left"></i>
+        <ul class="slidecontent">
+          <div>
+            <li class="card" style="text-align: scenter">
+              <b>Gorgious diamond eternity bands</b>
+              <p>
+                Order two one carrot<br />
+                bands to much my wedding ..
+              </p>
+              <b>Kim W.</b>
+            </li>
+          </div>
+
+          <div>
+            <li class="card" style="text-align: center">
+              <b>Well worth the price</b>
+              <p>
+                Classic piece and very sparkly.The rose <br />gold is georgious!
+              </p>
+              <b>Amanda</b>
+            </li>
+          </div>
+
+          <div>
+            <li class="card" style="text-align: center">
+              <b>Sheer Perfection!</b>
+              <p>
+                What a gorgeous ring at a super value! I <br />received the
+                eternity band faster than..
+              </p>
+              <b>Mary T.</b>
+            </li>
+          </div>
+
+          <div>
+            <li class="card" style="text-align: center">
+              <b>Watch this</b>
+              <p>
+                Classic piece and very sparkly.The rose <br />gold is georgious!
+              </p>
+              <b>Ashley</b>
+            </li>
+          </div>
+
+          <div>
+            <li class="card" style="text-align: center">
+              <b>Sheer Perfection!</b>
+              <p>
+                What a gorgeous ring at a super value! I <br />received the
+                eternity band faster than..
+              </p>
+              <b>Mary T.</b>
+            </li>
+          </div>
+          <div>
+            <li class="card" style="text-align: center">
+              <b>Sheer Perfection!</b>
+              <p>
+                What a gorgeous ring at a super value! I <br />received the
+                eternity band faster than..
+              </p>
+              <b>Mary T.</b>
+            </li>
+          </div>
+          <div>
+            <li class="card" style="text-align: center">
+              <b>Sheer Perfection!</b>
+              <p>
+                What a gorgeous ring at a super value! I <br />received the
+                eternity band faster than..
+              </p>
+              <b>Mary T.</b>
+            </li>
+          </div>
+          <div>
+            <li class="card" style="text-align: center">
+              <b>Sheer Perfection!</b>
+              <p>
+                What a gorgeous ring at a super value! I <br />received the
+                eternity band faster than..
+              </p>
+              <b>Mary T.</b>
+            </li>
+          </div>
+          <div>
+            <li class="card" style="text-align: center">
+              <b>Sheer Perfection!</b>
+              <p>
+                What a gorgeous ring at a super value! I <br />received the
+                eternity band faster than..
+              </p>
+              <b>Mary T.</b>
+            </li>
+          </div>
+        </ul>
+        <i class="fa-solid fa-angle-right"></i>
+      </div>
+
+      <div>
+        <p
+          style="
+            margin: 30px 0;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+            font-family: Libre Franklin, sans-serif;
+          "
+        >
+          Gift Guide
+        </p>
+      </div>
+
+      <div class="offer mb-2">
+        <div class="row g-2">
+          <div class="col-lg-6 overflow-hidden">
+            <div class="offer1"><img src="offer1.jpg" /></div>
+          </div>
+          <div class="col-lg-3 overflow-hidden col-6">
+            <div class="offer2"><img src="offer2.jpg" /></div>
+          </div>
+          <div class="col-lg-3 overflow-hidden col-6">
+            <div class="offer3"><img src="offer3.jpg" /></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p
+          style="
+            text-align: center;
+            margin: 30px 0;
+            font-size: 20px;
+            font-weight: 600;
+            font-family: Frank Ruhl Libre;
+          "
+        >
+          Our Commitments
+        </p>
+      </div>
+
+      <div class="commit">
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <img src="Free_Shipping.jpg" alt="" />
+            <div>
+              <h4>FREE SHIPPING</h4>
+              <p>Free Fedex 2day shipping <br />on all orders.</p>
+              <div class="line-footer">
+                <a class="learn" href="">Learn More</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-6">
+            <img src="Lifetime_Warranty.jpg" alt="" />
+            <div>
+              <h4>FREE SHIPPING</h4>
+              <p>Free Fedex 2day shipping <br />on all orders.</p>
+              <button
+                style="
+                  align-items: center;
+                  padding: 4px;
+                  width: 30%;
+                  font-size: 12px;
+                  border: none;
+                "
+              >
+                Learn More
+              </button>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-6">
+            <img src="holiday.jpg" alt="" />
+            <div>
+              <h4>FREE SHIPPING</h4>
+              <p>Free Fedex 2day shipping <br />on all orders.</p>
+              <button
+                style="
+                  align-items: center;
+                  padding: 4px;
+                  width: 30%;
+                  font-size: 12px;
+                  border: none;
+                "
+              >
+                Learn More
+              </button>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-6">
+            <img src="Free_Return.jpg" alt="" />
+            <div>
+              <h4>FREE SHIPPING</h4>
+              <p>Free Fedex 2day shipping <br />on all orders.</p>
+              <button
+                style="
+                  align-items: center;
+                  padding: 4px;
+                  width: 30%;
+                  font-size: 12px;
+                  border: none;
+                "
+              >
+                Learn More
+              </button>
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+      </div>
+       </div>
+       
+      <div style="background-color: rgb(4, 61, 61);">
+        <div style="width: 85%; margin: auto;">
+            <div class="d-none d-lg-block d-md-block">
+                    <div class="row ">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="contact">
+                        <ul style="color: #f9f9f9; margin: 20px 0;">Contact Us
+                            <li>Mon-Fri:9.00-6.00pm ET </li>
+                            <li>877-812-7273</li>
+                            <li>Email Us</li>
+                            <li>Live Chat</li>
+                            <li> Book an Appointment</li>
+                        </ul>
+                        </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+                        <div class="contact">
+                        <ul style="color: #f9f9f9; margin: 20px 0;">SUPPORT
+                            <li>Free Shiping</li>
+                            <li>Free Returns</li>
+                            <li>Warranty</li>
+                            <li>Track Your Order</li>  
+                            <li>FAQs</li>
+                            <li>Accessibility</li>
+                        </ul>
+                        </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 ">
+                        <div class="contact">
+                        <ul style="color: #f9f9f9; margin: 20px 0;">
+                            <li>Mon-Fri:9.00-6.00pm ET</li>
+                            <li>877-812-7273</li>
+                            <li>Email Us</li>
+                            <li>Book an Appointment<li>
+                            </li>Live Chat</li>
+                        </ul>
+                        </div>
+                        </div>
+
+                        <div class="col-lg-3">
+                        <div class="contact">
+                        <ul style="color:white; margin: 20px 0;">NEWSLETTER
+                            <li>Mon-Fri:9.00-6.00pm ET</li>
+                            <li>877-812-7273</li>
+                            <li>Mon-Fri:9.00-6.00pm ET</li>
+                            <li>Email Us<li>
+                            </li></li>
+                        </ul>
+                        </div>
+                        </div>
+                        </div>
+            </div>
+         
+            <div class="d-block d-lg-none d-md-none">
+
+                <div class="accordion"  id="accordionExample">
+          <div class="accordion-item" style="background-color: rgb(4, 61, 61); color: #f9f9f9;">
+            <h2 class="accordion-header"  id="headingOne">
+              <button class="accordion-button" style="background-color: rgb(4, 61, 61); color: #f9f9f9" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Contact Us
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div class="accordion-body" >
+                <ul>
+                <li>Mon-Fri:9.00-6.00pm ET </li>
+                            <li>877-812-7273</li>
+                            <li>Email Us</li>
+                            <li>Live Chat</li>
+                            <li> Book an Appointment</li></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" style="background-color: rgb(4, 61, 61); ;">
+            <h2 class="accordion-header" id="headingTwo" >
+              <button class="accordion-button collapsed" style="background-color: rgb(4, 61, 61); color: #f9f9f9;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                SUPPORT                
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item" style="background-color: rgb(4, 61, 61); color: #f9f9f9;">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" style="background-color: rgb(4, 61, 61); color: #f9f9f9;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Accordion Item #3
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+              </div>
+            </div>
+          </div>
+        </div>
+        <br><br>
+            </div>
+            <br>
+            <br>
+        </div>
+
+     
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+  AOS.init();
+</script>
+  </body>
+</html>
